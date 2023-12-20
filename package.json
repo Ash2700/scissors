@@ -4,14 +4,15 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start" : "node main.js",
-    "dev" : "nodemon main.js",
+    "start": "node main.js",
+    "dev": "nodemon main.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "Ash2700",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2"
   }
 }
