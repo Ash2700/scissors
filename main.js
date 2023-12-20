@@ -3,6 +3,7 @@ const app = express()
 const port = 3000
 const {engine} = require('express-handlebars')
 
+
 app.use(express.static('public'))
 app.engine('.hbs',engine({extname:'.hbs'}))
 app.set('view engine', '.hbs')
@@ -14,7 +15,7 @@ app.get('/',(req,res) =>{
 })
 
 app.get('/scissors',(req,res)=>{
-  res.send('helld wolrd')
+  res.render('index')
 })
 
 
