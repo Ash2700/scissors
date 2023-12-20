@@ -1,0 +1,17 @@
+{
+  "name": "scissors",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start" : "node main.js",
+    "run" : "nodemon main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ash2700",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
