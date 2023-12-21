@@ -23,8 +23,8 @@ app.get('/scissors',(req,res)=>{
 
 //tans to short v
 //save data??? v
-// check rep date??/
-//send back data
+// check rep date??/ v
+//send back data v
 app.get('/shortlink', (req,res) => {
   const inputURL = req.query.inputURL
   const originShort = takeBackShortlink(inputURL).shortURL
@@ -37,9 +37,11 @@ app.get('/shortlink', (req,res) => {
 })
 
 app.get('/www.scissors.com/*',(req,res)=>{
-  res.send(req.path)
- console.log(req.params[0])
+  const shortName = req.params[0]
+  const result =takeBackShortlink(shortName).inputURL
+  res.redirect(result)
 })
+
 function takeBackShortlink(string){
   if(isRepeat(string)){
     const result = data.find((item) =>{ return  Object.values(item).includes(string)})
