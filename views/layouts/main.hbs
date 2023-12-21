@@ -10,5 +10,11 @@
 <body>
   {{{body}}}
   <script scr="javascript\bootstrap.js"></script>
+  <script>function copyButton() {
+      const shortURL = document.getElementById("shortURL")
+      navigator.clipboard.writeText(shortURL.innerText)
+        .then(() => alert('copied'))
+        .catch((error) => { console.error(error.message) })
+    }</script>
 </body>
 </html>

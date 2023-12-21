@@ -29,7 +29,6 @@ app.get('/shortlink', (req,res) => {
   const inputURL = req.query.inputURL
   const originShort = takeBackShortlink(inputURL).shortURL
   const randSting = isRepeat(inputURL) ? originShort : getRandWord()
-  console.log(randSting)
   if(!isRepeat(inputURL)){
     saveData(inputURL,randSting)
   }
@@ -41,6 +40,13 @@ app.get('/www.scissors.com/*',(req,res)=>{
   const result =takeBackShortlink(shortName).inputURL
   res.redirect(result)
 })
+
+function copyButton(){
+  const shortURL =document.getElementById("shortURL")
+  navigator.clipboard.writeText(shortURL.innerText)
+  .then(()=>alert('copied'))
+  .catch((error)=>{console.error(error.message)})
+}
 
 function takeBackShortlink(string){
   if(isRepeat(string)){

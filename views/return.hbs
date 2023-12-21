@@ -11,14 +11,16 @@
       </div>
 
       <div>
-        <form class="keyInBar" action="/copylink" method="GET">
+        <form class="keyInBar">
           <div class="input-group w-50 m-4 mx-auto">
             <h3 class="title">Success! Please use htis link </h3>
-            <a href="{{shortlink}}" class="shortlink fs-3 fw-lighter font-monospace">{{shortlink}}</a>
+            <a id="shortURL" href="{{shortlink}}" class="shortlink fs-3 fw-lighter font-monospace">{{shortlink}}</a>
           </div>
           <div class="input-group-append">
             <div class="d-grid gap-2 col-6 mx-auto m-4">
-              <button class="btn btn-primary" type="submit">copy</button>
+              <button class="btn btn-primary" type="button" onclick="copyButton()">
+              copy
+              </button>
             </div>
           </div>
         </form>
