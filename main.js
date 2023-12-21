@@ -27,16 +27,30 @@ app.get('/scissors',(req,res)=>{
 //send back data
 app.get('/shortlink', (req,res) => {
   const inputURL = req.query.inputURL
-  const randSting = getRandWord()
-  saveData(inputURL,randSting)
+  const originShort = takeBackShortlink(inputURL).shortURL
+  const randSting = isRepeat(inputURL) ? originShort : getRandWord()
+  console.log(randSting)
+  if(!isRepeat(inputURL)){
+    saveData(inputURL,randSting)
+  }
   res.render('return',{shortlink:`www.scissors.com/${randSting}`})
 })
 
-// function isRepeat(string){
-//   const dataArray =data.data
-//   const result = dataArray.some(({inputURL})=>inputURL === string)
-//   return result
-// }
+app.get('/www.scissors.com/*',(req,res)=>{
+  res.send(req.path)
+ console.log(req.params[0])
+})
+function takeBackShortlink(string){
+  if(isRepeat(string)){
+    const result = data.find((item) =>{ return  Object.values(item).includes(string)})
+  return result
+  }
+  return ''
+}
+function isRepeat(string){
+  const result = data.some((item)=>Object.values(item).includes(string) )
+  return result
+}
 
 function getRandWord(){
   const characters =
