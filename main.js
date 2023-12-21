@@ -3,7 +3,7 @@ const app = express()
 const port = 3000
 const {engine} = require('express-handlebars')
 const fs = require('fs')
-let data = require('./public/jsons/data.json').data
+let data = loadData()
 
 app.use(express.static('public'))
 app.engine('.hbs',engine({extname:'.hbs'}))
@@ -17,18 +17,26 @@ app.get('/',(req,res) =>{
 
 app.get('/scissors',(req,res)=>{
   res.render('index')
+  
 })
 //get link v
 
 //tans to short v
-//save data???
+//save data??? v
+// check rep date??/
 //send back data
 app.get('/shortlink', (req,res) => {
   const inputURL = req.query.inputURL
   const randSting = getRandWord()
   saveData(inputURL,randSting)
-  console.log(data)
+  res.render('return',{shortlink:`www.scissors.com/${randSting}`})
 })
+
+// function isRepeat(string){
+//   const dataArray =data.data
+//   const result = dataArray.some(({inputURL})=>inputURL === string)
+//   return result
+// }
 
 function getRandWord(){
   const characters =
@@ -41,19 +49,19 @@ function getRandWord(){
 }
 
 function saveData(inputURL,randSting){
-  data.push({inputURL, shortURL:`http://scissor/${randSting}`})
-  fs.writeFileSync('data.json',JSON.stringify(data,null,2))
+  data.push({inputURL, shortURL:`${randSting}`})
+  fs.writeFileSync('./public/jsons/data.json',JSON.stringify(data,null,2))
 }
 
-// function loadData(){
-//   try{
-//     const jsonData = fs.readFileSync('\jsons\data.json','utf8')
-//     return JSON.parse(jsonData) || []
-//   }catch(error){
-//     console.error('讀取資料錯誤',error.message)
-//     return []
-//   }
-// }
+function loadData(){
+  try{
+    const jsonData = fs.readFileSync('./public/jsons/data.json','utf8')
+    return JSON.parse(jsonData) || []
+  }catch(error){
+    console.error('讀取資料錯誤',error.message)
+    return []
+  }
+}
 
 app.listen(port,()=>{
   console.log(`server is started http://localhost:${port} `)

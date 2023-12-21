@@ -1,3 +1,20 @@
 {
-  "data":[]
+  "data":[
+  {
+    "inputURL": "http://www.go3ogle.com",
+    "shortURL": "F08hT"
+  },
+  {
+    "inputURL": "http://www.gofogle.com",
+    "shortURL": "ZpzMV"
+  },
+  {
+    "inputURL": "http://www.gohogle.com",
+    "shortURL": "LtFhm"
+  },
+  {
+    "inputURL": "http://www.godogle.com",
+    "shortURL": "N3F75"
+  }
+]
 }

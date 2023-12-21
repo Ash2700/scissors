@@ -2,7 +2,7 @@
   <div class="row justify-content-center">
     <div class="col align-self-center ">
       <div>
-        <h1 class="title text-center m-5">URL Shortener</h1>
+        <h1 class="title text-center m-5 fw-bold">URL Shortener</h1>
       </div>
 
       <div class="picture row justify-content-center m-3">
@@ -11,15 +11,16 @@
       </div>
 
       <div>
-        <form class="keyInBar" action="/shortlink" method="GET" >
+        <form class="keyInBar" action="/copylink" method="GET">
           <div class="input-group w-50 m-4 mx-auto">
-            <input type="URL" class="form-control" aria-label="Sizing example input"
-              aria-describedby="inputGroup-sizing-lg" placeholder="input URL here" name="inputURL" {{!--
-              value="{{inputURL}}" --}}>
+            <h3 class="title">Success! Please use htis link </h3>
+            <a href="{{shortlink}}" class="shortlink fs-3 fw-lighter font-monospace">{{shortlink}}</a>
           </div>
-          <div class="d-grid gap-2 col-6 mx-auto m-4">
-              <button class="btn btn-primary" type="submit">shorten</button>
+          <div class="input-group-append">
+            <div class="d-grid gap-2 col-6 mx-auto m-4">
+              <button class="btn btn-primary" type="submit">copy</button>
             </div>
+          </div>
         </form>
       </div>
 
