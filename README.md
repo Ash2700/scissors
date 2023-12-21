@@ -50,7 +50,7 @@ npm run dev
 7. 當 terminal 出現以下字樣，表示伺服器與資料庫已啟動並成功連結
    
 ```jsx
-express server is started on http://localhost:3000
+server is started  http://localhost:3000
 ```
 最後，請開啟任一瀏覽器瀏覽器輸入 [http://localhost:3000]
 ___
