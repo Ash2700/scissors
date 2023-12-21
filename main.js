@@ -26,7 +26,7 @@ app.get('/shortlink', (req, res) => {
   if (!isRepeat(inputURL)) {
     saveData(inputURL, randSting)
   }
-  res.render('return', { shortlink: `www.scissors.com/${randSting}` })
+  res.render('return', { shortlink: `http://localhost:3000/www.scissors.com/${randSting}` })
 })
 
 app.get('/www.scissors.com/*', (req, res) => {
