@@ -17,6 +17,25 @@ app.get('/',(req,res) =>{
 app.get('/scissors',(req,res)=>{
   res.render('index')
 })
+//get link v
+
+//tans to short v
+//save data???
+//send back data
+app.get('/shortlink', (req,res) => {
+  const inputURL = req.query.inputURL
+  const randSting = getRandWord()
+})
+
+function getRandWord(){
+  const characters =
+    'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+  let result =''
+  for(let i=0 ; i < 5 ; i++){
+    result += characters.charAt(Math.floor(Math.random() * characters.length))
+  }
+  return result
+}
 
 
 app.listen(port,()=>{
